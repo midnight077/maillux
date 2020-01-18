@@ -1,0 +1,50 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #696969;
+}
+section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 0 4px 3px #00000069;
+}
+section > div > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.coloured {
+  color: #028477;
+  font-size: 25px;
+}
+input {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 25px;
+  border: none;
+  border-bottom: 1px solid #0096885c;
+}
+button {
+  color: #1b1c1d;
+  margin: 10px 0;
+  background-color: #009688;
+  border: none;
+  /* color: white; */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+}
+a {
+  color: #009688;
+  text-decoration: none;
+}
