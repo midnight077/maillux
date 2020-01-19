@@ -1,0 +1,42 @@
+.courses-section > div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 5rem;
+    padding-top: 1rem;
+    justify-content: center;
+}
+.courses-section > div .course .info > div:nth-of-type(1) {
+    font-weight: 500;
+}
+.courses-section > div .course .info {
+    border-radius: 7px;
+    padding: 10px;
+    color: black;
+}
+@media only screen and (max-width: 750px) {
+    .courses-section > div {
+        padding: 0rem;
+        justify-content: center;
+    }
+    .courses-section > div .course {
+        padding-left: 10px;
+        margin: 1rem;
+        border-radius: 7px;
+        padding: 10px;
+        background: #262629;
+    }
+}
+@media only screen and (min-width: 750px) {
+    .courses-section > div a {
+        flex-basis: 500px;
+    }
+    .courses-section > div > a .course {
+        display: flex;
+        background: #262629;
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 7px;
+        margin: 1rem;
+    }
+}
