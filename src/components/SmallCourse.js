@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 class SmallCourse extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.colors = [
             ['#01579b', '#03a9f4'],
             ['#880e4f', '#e91e63'],

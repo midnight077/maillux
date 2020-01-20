@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Courses.css';
+import { getCourses } from '../utils/api';
 import SmallCourse from './SmallCourse';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
