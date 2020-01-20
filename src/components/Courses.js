@@ -10,247 +10,62 @@ import {
 import { Route, Link } from 'react-router-dom';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-class Courses extends Component {
-    render() {
-        return (
-            <main>
-                <header>
-                    <nav>
-                        <div style={{ fontSize: 25 + 'px', color: '#009c8e' }}>
-                            <Link style={{ color: '#009c8e' }} to='/'>
-                                Maillux
-                            </Link>
-                            <div>Courses</div>
-                        </div>
-                    </nav>
-                </header>
-                <section className='courses-section'>
-                    <div>
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
+const Courses = () => {
+    const hashCode = (s) =>
+        s.split('').reduce((a, b) => {
+            a = (a << 5) - a + b.charCodeAt(0);
+            return a & a;
+        }, 0);
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        (async () => {
+            const courses = await getCourses();
+            setCourses(courses.data.data);
+        })();
+    }, []);
+    return (
+        <main>
+            <header>
+                <nav>
+                    <div style={{ fontSize: 25 + 'px', color: '#009c8e' }}>
+                        <Link style={{ color: '#009c8e' }} to='/'>
+                            Maillux
                         </Link>
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>{' '}
-                        <Link to='/hello' title='Interview Preparation Course'>
-                            <SmallCourse
-                                title='Interview Preparation Course'
-                                col={Math.floor(Math.random() * 10)}
-                                author='Yash Sharma'
-                                duration='8'
-                                subs='56'
-                                published='20 Jan 2020'
-                                description='In this course you will learn about important interview questions related to data structures like array, linked lists, trees, graphs, and dynamic programming problems'
-                            />
-                        </Link>
+                        <div>Courses</div>
                     </div>
-                </section>
-            </main>
-        );
-    }
-}
+                </nav>
+            </header>
+            <section className='courses-section'>
+                <div>
+                    {courses.map((item) => {
+                        console.log(item);
+                        return (
+                            <Link to={'/course/' + item._id} title={item.title}>
+                                <SmallCourse
+                                    title={item.title}
+                                    col={hashCode(item.author) % 8}
+                                    author={item.author}
+                                    duration={item.duration}
+                                    subs={item.subscribers.length}
+                                    published={new Date(
+                                        +item.createdAt.slice(0, 4),
+                                        +item.createdAt.slice(5, 7) - 1,
+                                        +item.createdAt.slice(8, 10)
+                                    )
+                                        .toDateString()
+                                        .slice(4)}
+                                    description={
+                                        item.description ||
+                                        'No Description Available'
+                                    }
+                                />
+                            </Link>
+                        );
+                    })}
+                </div>
+            </section>
+        </main>
+    );
+};
 
 export default Courses;
