@@ -2,15 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Courses.css';
 import { getCourses } from '../utils/api';
 import SmallCourse from './SmallCourse';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faGraduationCap,
-    faLock,
-    faEnvelopeOpen
-} from '@fortawesome/free-solid-svg-icons';
-import { Route, Link } from 'react-router-dom';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
+import { Link } from 'react-router-dom';
 const Courses = () => {
     const hashCode = (s) =>
         s.split('').reduce((a, b) => {

@@ -23,7 +23,13 @@ class SmallCourse extends Component {
                     background: this.colors[this.props.col][0]
                 }}
             >
-                <div style={{ fontSize: `${22}px`, color: 'white' }}>
+                <div
+                    style={{
+                        fontSize: `${22}px`,
+                        paddingBottom: `${5}px`,
+                        color: 'white'
+                    }}
+                >
                     {this.props.title}
                 </div>
                 <div

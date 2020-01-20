@@ -15,6 +15,9 @@
     color: black;
 }
 @media only screen and (max-width: 750px) {
+    .courses-section > div a {
+        flex-basis: 100%;
+    }
     .courses-section > div {
         padding: 0rem;
         justify-content: center;
