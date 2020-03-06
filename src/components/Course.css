@@ -1,0 +1,17 @@
+.course_info {
+    font-size: 22px;
+    color: white;
+    padding: 15px;
+}
+.subs_form {
+    display: flex;
+    flex-direction: column;
+}
+.subs_form input {
+    padding: 10px;
+    background: #121213;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-bottom: 2px solid #10100f;
+}
