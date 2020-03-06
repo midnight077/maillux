@@ -1,7 +1,7 @@
 nav {
     display: flex;
     padding: 2rem 5rem;
-    box-shadow: 0 0 8px 0px #383838;
+    /* box-shadow: 0 0 8px 0px #383838; */
     flex-direction: row;
     justify-content: space-between;
     color: #757165;

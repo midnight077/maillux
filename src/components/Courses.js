@@ -31,12 +31,11 @@ const Courses = () => {
             <section className='courses-section'>
                 <div>
                     {courses.map((item) => {
-                        console.log(item);
                         return (
                             <Link to={'/course/' + item._id} title={item.title}>
                                 <SmallCourse
                                     title={item.title}
-                                    col={hashCode(item.author) % 8}
+                                    col={hashCode(item.author) % 10}
                                     author={item.author}
                                     duration={item.duration}
                                     subs={item.subscribers.length}

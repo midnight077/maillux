@@ -4,4 +4,8 @@ const getCourses = async () => {
     const resp = await axios.get(`/api/courses`);
     return { data: resp.data };
 };
-export { getCourses };
+const getCourseById = async (id) => {
+    const resp = await axios.get(`/api/courses/${id}`);
+    return { data: resp.data };
+};
+export { getCourses, getCourseById };
