@@ -6,6 +6,7 @@ import Signup from "./components/Signup";
 import Courses from "./components/Courses";
 import Course from "./components/Course";
 import User from "./components/User";
+import Create from "./components/Create";
 import { Route } from "react-router-dom";
 
 function App() {
