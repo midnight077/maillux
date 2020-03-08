@@ -48,7 +48,7 @@ const Login = () => {
     }
   }, [email, password]);
   return (
-    <main className="main">
+    <main className="Login">
       <section className="login-section">
         <div>
           <p>

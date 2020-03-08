@@ -48,7 +48,7 @@ const Signup = () => {
     }
   }, [email, password, username]);
   return (
-    <main className="main">
+    <main className="Sign-Up">
       <section className="signup-section">
         <div>
           <p>
