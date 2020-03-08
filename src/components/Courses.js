@@ -4,7 +4,7 @@ import "./Courses.css";
 import axios from "../axios";
 import { getCourses } from "../utils/api";
 import SmallCourse from "./SmallCourse";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 const Courses = () => {
   const [loggedin, setLoggedin] = useState(true);
   const fetchData = async () => {
@@ -36,20 +36,34 @@ const Courses = () => {
     })();
   }, []);
   return (
-    <main>
-      <header>
-        <nav>
-          <div style={{ fontSize: 25 + "px", color: "#009c8e" }}>
-            <Link style={{ color: "#009c8e" }} to="/">
-              Maillux
-            </Link>
-            <div>Courses</div>
-            <Link style={{ color: "#009c8e" }} to="/create">
-              Create
-            </Link>
-          </div>
-        </nav>
-      </header>
+    <main className="Courses">
+      <nav>
+        <div className="left">
+          <Link to="/">Maillux</Link>
+        </div>
+        <div className="right">
+          {loggedin ? (
+            <>
+              <Link to="/create">Create</Link>
+              <button
+                onClick={(e) => {
+                  localStorage.removeItem("auth-token");
+                  {
+                    setLoggedin(false);
+                  }
+                }}
+              >
+                LogOut
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">LogIn </Link>
+              <Link to="/register"> SignUp</Link>
+            </>
+          )}
+        </div>
+      </nav>
       <section className="courses-section">
         <div>
           {courses.map((item) => {

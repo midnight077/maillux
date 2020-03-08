@@ -1,45 +1,78 @@
-.courses-section > div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 5rem;
-    padding-top: 1rem;
-    justify-content: center;
+.Courses nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  padding: 15px;
+  color: white;
+  font-size: 25px;
 }
-.courses-section > div .course .info > div:nth-of-type(1) {
-    font-weight: 500;
+.Courses nav > .left {
 }
-.courses-section > div .course .info {
-    border-radius: 7px;
-    padding: 10px;
-    color: black;
+.Courses nav > .right {
+}
+.Courses a {
+  color: white;
+  text-decoration: none;
+}
+.Courses .courses-section > div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 5rem;
+  padding-top: 1rem;
+  justify-content: center;
+}
+.Courses .courses-section > div .course .info > div:nth-of-type(1) {
+  font-weight: 500;
+}
+.Courses .courses-section > div .course .info {
+  border-radius: 7px;
+  padding: 10px;
+  color: black;
+}
+.Courses button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+}
+.Courses button:hover {
+  cursor: pointer;
+  color: #ff5722;
+}
+.Courses a:hover {
+  cursor: pointer;
+  color: #ff5722;
 }
 @media only screen and (max-width: 750px) {
-    .courses-section > div a {
-        flex-basis: 100%;
-    }
-    .courses-section > div {
-        padding: 0rem;
-        justify-content: center;
-    }
-    .courses-section > div .course {
-        padding-left: 10px;
-        margin: 1rem;
-        border-radius: 7px;
-        padding: 10px;
-        background: #262629;
-    }
+  .Courses .courses-section > div a {
+    flex-basis: 100%;
+  }
+  .Courses .courses-section > div {
+    padding: 0rem;
+    justify-content: center;
+  }
+  .Courses .courses-section > div .course {
+    padding-left: 10px;
+    margin: 1rem;
+    border-radius: 7px;
+    padding: 10px;
+    background: #262629;
+  }
 }
 @media only screen and (min-width: 750px) {
-    .courses-section > div a {
-        flex-basis: 500px;
-    }
-    .courses-section > div > a .course {
-        display: flex;
-        background: #262629;
-        flex-direction: column;
-        padding: 15px;
-        border-radius: 7px;
-        margin: 1rem;
-    }
+  .Courses .courses-section > div a {
+    flex-basis: 500px;
+  }
+  .Courses .courses-section > div > a .course {
+    display: flex;
+    background: #262629;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 7px;
+    margin: 1rem;
+  }
 }
