@@ -1,32 +1,133 @@
 .create-nav {
-  background: #3147c3;
+  background: #252525;
   font-size: 25px;
-  color: white;
+  color: #2ca2ff;
+  padding: 15px;
 }
 .create-button-new {
-  background: #ff5722;
+  background: #2ca2ff;
   display: flex;
-  display: inline-flex;
-  padding: 10px 30px;
-  color: white;
+  padding: 15px 0;
+  color: black;
   width: 300px;
-  text-align: center;
   justify-content: center;
+  cursor: pointer;
   border-radius: 3%;
+  font-size: 20px;
   margin: 20px;
+  text-decoration: none;
+}
+.create-section {
+  display: flex;
+  justify-content: center;
+}
+.create-section > div {
+  width: 94%;
+  background: #272727;
+  color: #a1a1a1;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+.create-section > div > p {
+  font-size: 25px;
+  margin: 0;
+}
+.published-button {
+  background: #1b5e20;
+  border: none;
+  margin: 0 10px;
+  color: #ffffff;
+  border-radius: 10px;
+}
+.not-published-button {
+  background: #383838;
+  border: none;
+  margin: 0 10px;
+  color: #bfbfbf;
+  border-radius: 10px;
+}
+.create-subs-button {
+  background: #0057bb;
+  border: none;
+  margin: 0 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.create-section > div > div > a {
+  color: rgb(212, 212, 212);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.create-button-new:hover {
+  background: rgb(85, 148, 241);
+}
+.create-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: white;
+}
+.create-form > input {
+  color: white;
+  background: #272727;
+  border: none;
+  padding: 15px 5px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.create-form textarea {
+  color: white;
+  background: #272727;
+  border: none;
+  padding: 15px 5px;
+  margin-top: 10px;
+  resize: vertical;
+  height: 100px;
+}
+.create-form button {
+  background: #2ca2ff;
+  padding: 10px 30px;
+  color: black;
+  width: 350px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 3%;
+  cursor: pointer;
+  font-size: 20px;
+}
+.create-form > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 @media only screen and (max-width: 750px) {
   .create-nav {
-    background: #3147c3;
+    background: #252525;
     font-size: 25px;
-    color: white;
-    width: 100%;
+    color: #2ca2ff;
   }
   .create-button-new {
     margin: 0;
-    margin-top: 20px;
+    width: 100%;
+  }
+  .create-form {
+    padding: 5px;
+  }
+  .create-form button {
     width: 100%;
   }
 }
 @media only screen and (min-width: 750px) {
+  .create-button-new div {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .create-section > div > div > a {
+    flex-direction: row;
+  }
 }
