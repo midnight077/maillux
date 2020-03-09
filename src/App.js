@@ -7,6 +7,7 @@ import Courses from "./components/Courses";
 import Course from "./components/Course";
 import User from "./components/User";
 import Create from "./components/Create";
+import Config from "./components/Config";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/courses" component={Courses} />
         <Route exact path="/create" component={Create} />
         <Route exact path="/course/:id" component={Course} />
+        <Route exact path="/config/:id" component={Config} />
       </Switch>
     </div>
   );
