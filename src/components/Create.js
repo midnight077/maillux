@@ -6,7 +6,7 @@ import "./Create.css";
 const Create = () => {
   const [loggedin, setLoggedin] = useState(true);
   const fetchData = async () => {
-    const token = await localStorage.getItem("auth-token");
+    const token = localStorage.getItem("auth-token");
     if (!token) {
       setLoggedin(false);
       return;
@@ -36,7 +36,7 @@ const Create = () => {
   const addCourse = async () => {
     if (loggedin && title && duration && description) {
       const content = { title, duration, description };
-      const token = await localStorage.getItem("auth-token");
+      const token = localStorage.getItem("auth-token");
       const response = await axios.post(
         `/api/courses/`,
         { content },
@@ -52,7 +52,7 @@ const Create = () => {
         <nav className="create-nav">Configuration Panel</nav>
         <div
           className="create-button-new"
-          onClick={(e) => {
+          onClick={() => {
             toggleForm();
           }}
         >
