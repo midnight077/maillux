@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Course.css";
 import { getCourseById } from "../utils/api";
+import axios from "../axios";
 const Course = ({ match }) => {
   const [data, setData] = useState({});
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState({});
   useEffect(() => {
     (async () => {
       const { data } = await getCourseById(match.params.id);
@@ -28,6 +32,32 @@ const Course = ({ match }) => {
     ["#1a237e", "#3f51b5"],
     ["#1b5e20", "#4caf50"]
   ];
+  const subscribe = async () => {
+    try {
+      setMessage({});
+      if (!(name && email)) throw { message: "Please enter valid details!" };
+      const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!email.match(mailformat)) throw { message: "Invalid Email address!" };
+
+      const resp = await axios.post(
+        `/api/courses/${match.params.id}/subscribers`,
+        { name, email }
+      );
+      if (resp.data.err) throw { message: resp.data.err };
+      setMessage({
+        isError: false,
+        message: `Thanks for subscribing to the course ${name}, Email Verification link has been sent to ${email}, please verify your email to access the content!`
+      });
+      setEmail("");
+      setName("");
+    } catch (error) {
+      console.log(error);
+      setMessage({
+        isError: true,
+        message: error.message
+      });
+    }
+  };
   return (
     <div>
       {console.log(data)}
@@ -39,7 +69,8 @@ const Course = ({ match }) => {
         <div
           style={{
             fontSize: "30px",
-            color: "black"
+            color: "black",
+            padding: "15px"
           }}
         >
           {data.title}
@@ -71,16 +102,40 @@ const Course = ({ match }) => {
         </p>
         <p>{data.description || "No Description Available!"}</p>
       </div>
+      {message.message && (
+        <div
+          className="message-box"
+          style={{
+            color: "black",
+            padding: "15px",
+            fontSize: "20px",
+            background: message.isError ? "#f44336" : "#4CAF50"
+          }}
+        >
+          {message.message}
+        </div>
+      )}
       <div>
         <form className="subs_form">
           <input
             type="text"
             placeholder="Enter your Name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            value={name}
             style={{
               marginBottom: "2px"
             }}
           ></input>
-          <input type="email" placeholder="Enter your email"></input>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+          ></input>
           <submit
             style={{
               textAlign: "center",
@@ -89,6 +144,10 @@ const Course = ({ match }) => {
               background: colors[hashCode(data.author) % 10][1],
               color: "black",
               fontSize: "25px"
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              subscribe();
             }}
           >
             Subscribe
