@@ -1,0 +1,71 @@
+.config-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #2ca2ff;
+  color: black;
+  font-size: 25px;
+  padding: 15px;
+  align-items: center;
+}
+.config-title-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+.config-title input {
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 5px 8px;
+}
+
+.config-material-holder {
+  color: white;
+}
+.config-material-day {
+  background: #212121;
+  margin: 4px;
+  padding: 15px;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+}
+.config-material-title {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.config-material-title input {
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  margin: 10px 0;
+  color: white;
+  background: #383838;
+}
+.config-material-content {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.config-material-content textarea {
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  resize: vertical;
+  margin: 10px 0;
+  color: white;
+  background: #383838;
+}
+::placeholder {
+  color: rgb(221, 221, 221);
+}
+.config-material-day button {
+  border: none;
+  background: #2ca2ff;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 20px;
+}
