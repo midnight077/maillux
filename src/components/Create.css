@@ -38,6 +38,7 @@
   margin: 0 10px;
   color: #ffffff;
   border-radius: 10px;
+  padding: 2px 10px;
 }
 .not-published-button {
   background: #383838;
@@ -45,6 +46,7 @@
   margin: 0 10px;
   color: #bfbfbf;
   border-radius: 10px;
+  padding: 2px 10px;
 }
 .create-subs-button {
   background: #0057bb;
@@ -52,6 +54,7 @@
   margin: 0 10px;
   color: white;
   border-radius: 10px;
+  padding: 2px 10px;
 }
 
 .create-section > div > div > a {

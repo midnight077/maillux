@@ -108,7 +108,7 @@ const Create = () => {
                     <Link to={`/config/${item._id}`}>
                       <div>{item.title} </div>
                       <div>
-                        {!item.isPublished ? (
+                        {item.isPublished ? (
                           <button className="published-button">
                             Published
                           </button>
