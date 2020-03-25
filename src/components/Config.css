@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .config-title {
   display: flex;
   flex-direction: row;
@@ -49,6 +53,13 @@
   display: flex;
   flex-direction: column;
 }
+.config-message {
+  background: black;
+  padding: 15px;
+  font-size: 18px;
+  color: red;
+  text-align: center;
+}
 .config-material-content textarea {
   border: none;
   padding: 15px;
@@ -57,15 +68,69 @@
   margin: 10px 0;
   color: white;
   background: #383838;
+  height: 100px;
 }
 ::placeholder {
   color: rgb(221, 221, 221);
 }
-.config-material-day button {
+.config-save-changes {
   border: none;
   background: #2ca2ff;
   color: black;
   cursor: pointer;
   padding: 15px;
   font-size: 20px;
+}
+.config-day-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.config-day-header button {
+  background: #9c27b0;
+  color: white;
+  padding: 5px 05px;
+  border: none;
+  cursor: pointer;
+  border-radius: 25%;
+}
+.config-day-adder,
+.config-publish {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  align-items: center;
+  margin: 10px;
+  font-size: 25px;
+}
+.config-day-adder button {
+  margin-left: 15px;
+  cursor: pointer;
+  border: none;
+  background: #9c27b0;
+  color: white;
+  padding: 4px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.config-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.config-delete-course {
+  font-size: 20px;
+  background: #9c27b0;
+  border: none;
+  margin-left: 15px;
+  color: white;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
 }
