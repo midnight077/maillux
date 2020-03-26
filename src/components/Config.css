@@ -134,3 +134,13 @@
 button:hover {
   opacity: 0.8;
 }
+
+.config-info {
+  padding: 30px;
+  color: rgb(129, 129, 129);
+  font-size: 18px;
+}
+
+.config-info li {
+  margin-bottom: 10px;
+}
