@@ -79,6 +79,28 @@ const Config = ({ match }) => {
           )}
         </div>
       </div>
+      <div className="config-info">
+        <ul>
+          <li>
+            You can only delete a day if the course have zero active subscribers
+            (subscribers whose course is not completed).
+          </li>
+          <li>
+            A course can be Published only if each day has got some content in
+            it.
+          </li>
+          <li>The title for each day is optional.</li>
+          <li>
+            The text-wrap will not preserve the line brakes and tabs in the
+            email.
+          </li>
+          <li>
+            You should prefer to write content somewhere else first and then
+            just paste it here, else you'll have to keep on clicking save
+            changes in order to not loose the content already written.
+          </li>
+        </ul>
+      </div>
       {message && <div className="config-message">{message}</div>}
       <div className="config-day-adder">
         <p>Total Days : {course.content && course.content.length}</p>
@@ -97,44 +119,51 @@ const Config = ({ match }) => {
         </button>
       </div>
       <div className="config-options">
-        <div className="config-publish">
-          <p>Publish</p>
-          <div
-            onClick={async (e) => {
-              const token = localStorage.getItem("auth-token");
-              const response = await axios.post(
-                `/api/courses/${match.params.id}`,
-                {},
-                { headers: { "x-access-token": token } }
-              );
-              if (response.data.data) {
-                setCourse(response.data.data);
-              }
-              if (response.data.err) {
-                setMessage(response.data.err);
-                setTimeout(() => {
-                  setMessage("");
-                }, 3000);
-              }
-            }}
-          >
-            {course && course.isPublished ? (
-              <FontAwesomeIcon
-                icon={faCheckCircle}
-                className="config-title-icon"
-                style={{ color: "#375216" }}
-                title="save"
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faPencilAlt}
-                className="config-title-icon"
-                style={{ color: "#b12a00" }}
-                title="edit "
-              />
-            )}
+        {course && course.content && course.content.length && (
+          <div className="config-publish">
+            <p>Publish</p>
+            <div
+              onClick={async (e) => {
+                const token = localStorage.getItem("auth-token");
+                const response = await axios.post(
+                  `/api/courses/${match.params.id}`,
+                  {},
+                  { headers: { "x-access-token": token } }
+                );
+                if (response.data.data) {
+                  setCourse(response.data.data);
+                }
+                if (response.data.err) {
+                  setMessage(response.data.err);
+                  setTimeout(() => {
+                    setMessage("");
+                  }, 3000);
+                }
+              }}
+            >
+              {course && course.isPublished ? (
+                <FontAwesomeIcon
+                  icon={faToggleOn}
+                  style={{
+                    color: "#9c27b0",
+                    marginLeft: "10px",
+                    cursor: "pointer"
+                  }}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faToggleOff}
+                  style={{
+                    color: "grey",
+                    marginLeft: "10px",
+                    cursor: "pointer"
+                  }}
+                />
+              )}
+            </div>
           </div>
-        </div>
+        )}
+
         <button className="config-delete-course">Delete this Course !</button>
       </div>
 
