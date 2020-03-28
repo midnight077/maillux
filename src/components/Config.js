@@ -4,7 +4,12 @@ import "./Config.css";
 import { Redirect, Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencilAlt,
+  faCheckCircle,
+  faToggleOff,
+  faToggleOn
+} from "@fortawesome/free-solid-svg-icons";
 const Config = ({ match }) => {
   const [loggedin, setLoggedin] = useState(true);
 
@@ -173,22 +178,24 @@ const Config = ({ match }) => {
           course.content.map((item, i) => (
             <div className="config-material-day">
               <div className="config-day-header">
-                <p>Day {i + 1} </p>{" "}
-                <button
-                  onClick={async (e) => {
-                    const token = localStorage.getItem("auth-token");
-                    const response = await axios.put(
-                      `/api/courses/${match.params.id}/day`,
-                      { day: i + 1 },
-                      { headers: { "x-access-token": token } }
-                    );
-                    if (response.data && response.data.data) {
-                      setCourse(response.data.data);
-                    }
-                  }}
-                >
-                  Delete
-                </button>
+                <p>Day {i + 1} </p>
+                {!course.subscribers.length && (
+                  <button
+                    onClick={async (e) => {
+                      const token = localStorage.getItem("auth-token");
+                      const response = await axios.put(
+                        `/api/courses/${match.params.id}/day`,
+                        { day: i + 1 },
+                        { headers: { "x-access-token": token } }
+                      );
+                      if (response.data && response.data.data) {
+                        setCourse(response.data.data);
+                      }
+                    }}
+                  >
+                    Delete
+                  </button>
+                )}
               </div>
               <div className="config-material-title">
                 Title{" "}

@@ -101,6 +101,9 @@ const Course = ({ match }) => {
           </strong>
         </p>
         <p>{data.description || "No Description Available!"}</p>
+        {console.log(
+          data.titles
+        ) /* {data && data.titles.map((title) => <p>Day 1 : {title}</p>)} */}
       </div>
       {message.message && (
         <div
