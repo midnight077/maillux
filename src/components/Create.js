@@ -42,6 +42,7 @@ const Create = () => {
         { content },
         { headers: { "x-access-token": token } }
       );
+      window.location.reload();
       reset();
       toggleForm();
     }
