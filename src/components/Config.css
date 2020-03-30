@@ -60,7 +60,8 @@
   color: red;
   text-align: center;
 }
-.config-material-content textarea {
+.config-material-content textarea,
+.config-description textarea {
   border: none;
   padding: 15px;
   font-size: 18px;
@@ -73,7 +74,8 @@
 ::placeholder {
   color: rgb(221, 221, 221);
 }
-.config-save-changes {
+.config-save-changes,
+.config-description button {
   border: none;
   background: #2ca2ff;
   color: black;
@@ -130,7 +132,15 @@
   cursor: pointer;
   border-radius: 5px;
 }
-
+.config-description {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.config-description p {
+  font-size: 20px;
+  color: aliceblue;
+}
 button:hover {
   opacity: 0.8;
 }

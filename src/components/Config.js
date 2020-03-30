@@ -169,9 +169,53 @@ const Config = ({ match }) => {
           </div>
         )}
 
-        <button className="config-delete-course">Delete this Course !</button>
+        <button
+          className="config-delete-course"
+          onClick={async (e) => {
+            const confirmed = window.confirm(
+              "are you sure? this step is irreversible"
+            );
+            if (!confirmed) return;
+            const token = localStorage.getItem("auth-token");
+            const response = await axios.delete(
+              `/api/courses/${match.params.id}`,
+              { headers: { "x-access-token": token } }
+            );
+            if (response.data && response.data.data) {
+              setCourse(response.data.data);
+            }
+          }}
+        >
+          Delete this Course !
+        </button>
       </div>
-
+      <div className="config-description">
+        <p>Description </p>
+        <textarea
+          onChange={(e) => {
+            if (!course) return;
+            const c = { ...course };
+            c.description = e.target.value;
+            setCourse(c);
+          }}
+          value={course.description}
+        ></textarea>
+        <button
+          onClick={async (e) => {
+            const token = localStorage.getItem("auth-token");
+            const response = await axios.put(
+              `/api/courses/${match.params.id}/description`,
+              { description: course.description },
+              { headers: { "x-access-token": token } }
+            );
+            if (response.data && response.data.data) {
+              setCourse(response.data.data);
+            }
+          }}
+        >
+          save changes
+        </button>
+      </div>
       <div className="config-material-holder">
         {course &&
           course.content &&
@@ -179,23 +223,67 @@ const Config = ({ match }) => {
             <div className="config-material-day">
               <div className="config-day-header">
                 <p>Day {i + 1} </p>
-                {!course.subscribers.length && (
-                  <button
-                    onClick={async (e) => {
-                      const token = localStorage.getItem("auth-token");
-                      const response = await axios.put(
-                        `/api/courses/${match.params.id}/day`,
-                        { day: i + 1 },
-                        { headers: { "x-access-token": token } }
-                      );
-                      if (response.data && response.data.data) {
-                        setCourse(response.data.data);
-                      }
-                    }}
-                  >
-                    Delete
-                  </button>
-                )}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center"
+                  }}
+                >
+                  <div className="config-publish">
+                    <p>Text-Wrap</p>
+                    <div
+                      onClick={async (e) => {
+                        const token = localStorage.getItem("auth-token");
+                        const response = await axios.post(
+                          `/api/courses/${match.params.id}/day/togglewrap`,
+                          { day: i + 1 },
+                          { headers: { "x-access-token": token } }
+                        );
+                        if (response.data.data) {
+                          setCourse(response.data.data);
+                        }
+                      }}
+                    >
+                      {item.wrap ? (
+                        <FontAwesomeIcon
+                          icon={faToggleOn}
+                          style={{
+                            color: "#9c27b0",
+                            marginLeft: "10px",
+                            cursor: "pointer"
+                          }}
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faToggleOff}
+                          style={{
+                            color: "grey",
+                            marginLeft: "10px",
+                            cursor: "pointer"
+                          }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  {!course.subscribers.length && (
+                    <button
+                      onClick={async (e) => {
+                        const token = localStorage.getItem("auth-token");
+                        const response = await axios.put(
+                          `/api/courses/${match.params.id}/day`,
+                          { day: i + 1 },
+                          { headers: { "x-access-token": token } }
+                        );
+                        if (response.data && response.data.data) {
+                          setCourse(response.data.data);
+                        }
+                      }}
+                    >
+                      Delete
+                    </button>
+                  )}
+                </div>
               </div>
               <div className="config-material-title">
                 Title{" "}
