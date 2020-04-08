@@ -14,7 +14,7 @@ const Courses = () => {
       return;
     }
     const response = await axios.get("/api/user", {
-      headers: { "x-access-token": token }
+      headers: { "x-access-token": token },
     });
     setUser(response.data);
   };
@@ -44,7 +44,9 @@ const Courses = () => {
         <div className="right">
           {loggedin ? (
             <>
-              <Link to="/create">Create</Link>
+              <Link to="/create" style={{ margin: "5px" }}>
+                Create
+              </Link>
               <button
                 onClick={(e) => {
                   localStorage.removeItem("auth-token");

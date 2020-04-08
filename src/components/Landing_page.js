@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGraduationCap,
   faLock,
-  faEnvelopeOpen
+  faEnvelopeOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "../axios";
 import { Link } from "react-router-dom";
@@ -19,7 +19,7 @@ const Landing_page = () => {
       return;
     }
     const response = await axios.get("/api/user", {
-      headers: { "x-access-token": token }
+      headers: { "x-access-token": token },
     });
     setUser(response.data);
   };
@@ -94,7 +94,7 @@ const Landing_page = () => {
             <span className="light"> e-mail </span>{" "}
             <span className="mild"> courses </span>{" "}
           </div>
-          <div>
+          <div style={{ fontSize: "20px" }}>
             Subscribe to email courses <span className="light">or</span> Create
             your own email course, fill the content, publish it to share your
             knowledge with the world.

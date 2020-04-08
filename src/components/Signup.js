@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGraduationCap,
   faLock,
-  faEnvelopeOpen
+  faEnvelopeOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Link, Redirect } from "react-router-dom";
@@ -21,7 +21,7 @@ const Signup = () => {
     const res = await axios.post("/api/user/new", {
       email,
       password,
-      username
+      username,
     });
     // error handler
     if (!res.data.error) {
@@ -75,8 +75,17 @@ const Signup = () => {
             ></input>
           </div>
           <button onClick={handleSubmit}>Submit</button>
-          <p>Already Registerd?</p>
-          <Link to="/login">Login</Link>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <p>Already Registerd?</p>
+            <Link to="/login">Login</Link>
+          </div>
           {loggedin && <Redirect to="/courses" />}
         </div>
       </section>

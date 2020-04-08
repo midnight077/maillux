@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGraduationCap,
   faLock,
-  faEnvelopeOpen
+  faEnvelopeOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
@@ -24,7 +24,7 @@ const Login = () => {
     setLoading(true);
     const res = await axios.post("api/user/login", {
       email: email,
-      password: password
+      password: password,
     });
     // error handler
     if (!res.data.error) {
@@ -69,9 +69,17 @@ const Login = () => {
             ></input>
           </div>
           <button onClick={handleSubmit}>Submit</button>
-          <Link to="/forgot">Forgot Password?</Link>
-          <p>Not Registered Yet ?</p>
-          <Link to="/register">Create New Account</Link>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Link to="/forgot">Forgot Password?</Link>
+            <Link to="/register">Sign Up</Link>
+          </div>
           {loggedin && <Redirect to="/courses" />}
         </div>
       </section>
