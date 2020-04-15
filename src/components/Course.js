@@ -18,7 +18,7 @@ const Course = ({ match }) => {
   const hashCode = (s = "") =>
     s.split("").reduce((a, b) => {
       a = (a << 5) - a + b.charCodeAt(0);
-      return a & a;
+      return Math.abs(a & a);
     }, 0);
   const colors = [
     ["#01579b", "#03a9f4"],
@@ -30,7 +30,7 @@ const Course = ({ match }) => {
     ["#004d40", "#009688"],
     ["#bf360c", "#ff5722"],
     ["#1a237e", "#3f51b5"],
-    ["#1b5e20", "#4caf50"]
+    ["#1b5e20", "#4caf50"],
   ];
   const subscribe = async () => {
     try {
@@ -46,7 +46,7 @@ const Course = ({ match }) => {
       if (resp.data.err) throw { message: resp.data.err };
       setMessage({
         isError: false,
-        message: `Thanks for subscribing to the course ${name}, Email Verification link has been sent to ${email}, please verify your email to access the content!`
+        message: `Thanks for subscribing to the course ${name}, Email Verification link has been sent to ${email}, please verify your email to access the content!`,
       });
       setEmail("");
       setName("");
@@ -54,7 +54,7 @@ const Course = ({ match }) => {
       console.log(error);
       setMessage({
         isError: true,
-        message: error.message
+        message: error.message,
       });
     }
   };
@@ -63,14 +63,14 @@ const Course = ({ match }) => {
       {console.log(data)}
       <nav
         style={{
-          background: colors[hashCode(data.author) % 10][1]
+          background: colors[hashCode(data.author) % 10][1],
         }}
       >
         <div
           style={{
             fontSize: "30px",
             color: "black",
-            padding: "15px"
+            padding: "15px",
           }}
         >
           {data.title}
@@ -101,9 +101,11 @@ const Course = ({ match }) => {
           </strong>
         </p>
         <p>{data.description || "No Description Available!"}</p>
-        {console.log(
-          data.titles
-        ) /* {data && data.titles.map((title) => <p>Day 1 : {title}</p>)} */}
+        {
+          console.log(
+            data.titles
+          ) /* {data && data.titles.map((title) => <p>Day 1 : {title}</p>)} */
+        }
       </div>
       {message.message && (
         <div
@@ -112,7 +114,7 @@ const Course = ({ match }) => {
             color: "black",
             padding: "15px",
             fontSize: "20px",
-            background: message.isError ? "#f44336" : "#4CAF50"
+            background: message.isError ? "#f44336" : "#4CAF50",
           }}
         >
           {message.message}
@@ -128,7 +130,7 @@ const Course = ({ match }) => {
             }}
             value={name}
             style={{
-              marginBottom: "2px"
+              marginBottom: "2px",
             }}
           ></input>
           <input
@@ -146,7 +148,7 @@ const Course = ({ match }) => {
               padding: "20px",
               background: colors[hashCode(data.author) % 10][1],
               color: "black",
-              fontSize: "25px"
+              fontSize: "25px",
             }}
             onClick={(e) => {
               e.preventDefault();

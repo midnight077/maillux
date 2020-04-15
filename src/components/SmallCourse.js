@@ -12,22 +12,23 @@ class SmallCourse extends Component {
       ["#004d40", "#009688"],
       ["#bf360c", "#ff5722"],
       ["#1a237e", "#3f51b5"],
-      ["#1b5e20", "#4caf50"]
+      ["#1b5e20", "#4caf50"],
     ];
   }
   render() {
+    console.log(this.props);
     return (
       <div
         className="course"
         style={{
-          background: this.colors[this.props.col][0]
+          background: this.colors[this.props.col][0],
         }}
       >
         <div
           style={{
             fontSize: `${22}px`,
             paddingBottom: `${5}px`,
-            color: "white"
+            color: "white",
           }}
         >
           {this.props.title}
@@ -35,7 +36,7 @@ class SmallCourse extends Component {
         <div
           className="info"
           style={{
-            background: this.colors[this.props.col][1]
+            background: this.colors[this.props.col][1],
           }}
         >
           <div>By {this.props.author}</div>
